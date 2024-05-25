@@ -1,0 +1,7 @@
+﻿################################################################################
+# この .gitignore ファイルは Microsoft(R) Visual Studio によって自動的に作成されました。
+################################################################################
+
+/src/Yaml2DocsApp/.vs/Yaml2DocsApp
+/src/Yaml2DocsApp/Yaml2DocsApp/bin/Debug/net6.0
+/src/Yaml2DocsApp/Yaml2DocsApp/obj
