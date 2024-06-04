@@ -1,0 +1,34 @@
+﻿# テーブル定義書
+
+## {{id}}
+
+{{テーブル名称}}
+
+### columns
+
+| 物理名称 | 論理名称 | データ型 | 初期値 | PK | ID | NN | 備考 |
+|:-|:-|:-:|:-|:-:|:-:|:-:|:-|
+{{#each 列項目}}| {{物理名称}} | {{論理名称}} | {{データ型}}{{#if 桁数}}({{桁数}}){{/if}} |{{#if 初期値}} {{初期値}} {{/if}}|{{#if PK}} ○ {{/if}}|{{#if ID}} ○ {{/if}}|{{#if NN}} ○ {{/if}}|{{#if 備考}} {{備考}} {{/if}}|
+{{/each}}
+### indexes
+
+| No. | 物理名称 | カラムリスト | UNIQUE |
+|:-:|:-:|:-:|:-:|
+{{#each インデックス項目}}| {{No}} | {{インデックス名}} | {{列名}} |{{#if UNIQUE}} ○ {{/if}}|
+{{/each}}
+## DDL
+
+``` sql
+CREATE TABLE {{id}}(
+
+  {{#each 列項目}}{{物理名称}} {{データ型}}{{#if 桁数}}({{桁数}}){{/if}}{{#if ID}} IDENTITY(1,1){{/if}}{{#if 初期値}} DEFAULT {{初期値}}{{/if}}{{#if NN}} NOT NULL{{/if}},
+  {{/each}}s_ins_dtm datetime NOT NULL,
+  s_ins_usr varchar(36) NOT NULL,
+  s_ins_class varchar(40) NOT NULL,
+  s_upd_dtm datetime,
+  s_upd_usr varchar(36),
+  s_upd_class varchar(40),
+
+  CONSTRAINT PK_{{id}} PRIMARY KEY ({{PKeys}})
+);
+```

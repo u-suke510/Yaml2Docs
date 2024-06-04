@@ -1,0 +1,29 @@
+﻿id: m_user
+テーブル名称: ユーザーマスタ
+
+列項目:
+  - 物理名称: id
+    論理名称: ユーザーID
+    データ型: varchar
+    桁数: 36
+    PK: true
+    ID: false
+    NN: true
+
+  - 物理名称: disp_nm
+    論理名称: 表示名
+    データ型: nvarchar
+    桁数: 20
+    PK: false
+    ID: false
+    NN: true
+
+  - 物理名称: del_flg
+    論理名称: 削除フラグ
+    データ型: bit
+    初期値: 0
+    PK: false
+    ID: false
+    NN: true
+
+PKeys: id

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Yaml2DocsApp;
 using Yaml2DocsApp.Properties;
 using Yaml2DocsApp.Services;
+using Yaml2DocsApp.Settings;
 
 // 処理対象
 List<string> targets = null;
@@ -72,7 +73,10 @@ void Setup()
         builder.AddConsole();
         builder.AddLog4Net();
     });
-    services.AddSingleton<IYml2MdService, Yml2MdService>();
+    services.AddSingleton<IYml2MdService, Yml2MdService>()
+        .AddOptions<Yml2MdSrvSettings>().Configure<IConfiguration>((x, y) => {
+            y.GetSection("ServiceSettings:B1001").Bind(x);
+        });
     provider = services.BuildServiceProvider();
 
     // ロガーの生成

@@ -88,6 +88,15 @@ namespace Yaml2DocsApp.Properties {
         }
         
         /// <summary>
+        ///   テンプレートファイルが見つかりませんでした。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MsgErrTemplateFileNotFound {
+            get {
+                return ResourceManager.GetString("MsgErrTemplateFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   【{0}】{1}処理が異常終了しました。
         ///{2} に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -112,6 +121,15 @@ namespace Yaml2DocsApp.Properties {
         public static string MsgExecSuccessLog {
             get {
                 return ResourceManager.GetString("MsgExecSuccessLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   読み込むYAMLファイルが見つかりませんでした。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MsgYmlFileNotFound {
+            get {
+                return ResourceManager.GetString("MsgYmlFileNotFound", resourceCulture);
             }
         }
         
