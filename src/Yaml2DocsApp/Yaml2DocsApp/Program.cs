@@ -56,7 +56,12 @@ Thread.Sleep(1000);
 void Setup()
 {
     // アプリケーション設定
-    var confBuilder = new ConfigurationBuilder().AddJsonFile("appsettings.json", true, true);
+    var settingsPath = "appsettings.json";
+    if (args.Any())
+    {
+        settingsPath = args[0];
+    }
+    var confBuilder = new ConfigurationBuilder().AddJsonFile(settingsPath, true, true);
     var configuration = confBuilder.Build();
 
     // 処理対象の取得
